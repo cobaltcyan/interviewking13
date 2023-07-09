@@ -221,9 +221,9 @@ const studyApi = {
       res.status(200).json(updatedStudy);
     } catch (error) {
       console.log(error);
-      res.status(402).json({
-        code: 402,
-        message: 'The member cannot have authorization to update.',
+      res.status(426).json({
+        code: 426,
+        message: 'wrong request',
       });
     }
   },
