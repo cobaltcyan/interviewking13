@@ -49,7 +49,16 @@ const userService = {
   async getUserInfoById(user_id) {
     try {
       const findUser = await userRepository.findUserById(user_id); 
-      return findUser;
+      // return findUser;
+      return {
+        user_id: findUser._id,
+        user_name: findUser.user_name,
+        email: findUser.email,
+        intro_yn: findUser.intro_yn,
+        phone_number: findUser.phone_number, 
+        file_key: findUser.file_key, 
+        file_name: findUser.file_name
+      };
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
