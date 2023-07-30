@@ -181,15 +181,6 @@ const userController = {
                 resultCode: "200", 
                 message: "사용자 정보 조회 성공",
                 data: findUser
-                // data: {
-                //     user_id: findUser._id,
-                //     user_name: findUser.user_name,
-                //     email: findUser.email,
-                //     intro_yn: findUser.intro_yn,
-                //     phone_number: findUser.phone_number, 
-                //     file_key: findUser.file_key, 
-                //     file_name: findUser.file_name
-                // }
             });
         } catch (err) {
             console.error(err);
@@ -215,15 +206,16 @@ const userController = {
             return res.status(200).json({
                 resultCode: "200",
                 message: "내 정보 조회 성공",
-                data: {
-                    user_id: findUser._id,
-                    user_name: findUser.user_name,
-                    email: findUser.email,
-                    intro_yn: findUser.intro_yn,
-                    phone_number: findUser.phone_number,
-                    file_key: findUser.file_key, 
-                    file_name: findUser.file_name
-                }
+                data: findUser
+                // data: {
+                //     user_id: findUser._id,
+                //     user_name: findUser.user_name,
+                //     email: findUser.email,
+                //     intro_yn: findUser.intro_yn,
+                //     phone_number: findUser.phone_number,
+                //     file_key: findUser.file_key, 
+                //     file_name: findUser.file_name
+                // }
             });
         } catch (err) {
             console.error(err);
