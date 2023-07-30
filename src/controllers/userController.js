@@ -58,7 +58,7 @@ const userController = {
                 return res.status(400).json({
                     resultCode: "400",
                     message: "기존에 가입되어 있는 회원입니다.",
-                    data: findUser
+                    // data: findUser
                     // data: {
                     //     user_id: findUser._id,
                     //     email: findUser.email

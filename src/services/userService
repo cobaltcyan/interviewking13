@@ -73,9 +73,12 @@ const userService = {
     try {
       const findUser = await userRepository.findUserByEmail(email);  
       // return findUser;
+      if (!findUser) {
+        return null; // 유저가 없는 경우 null 반환
+      }
       return {
-        user_id: findUser._id,
-        email: findUser.email
+        user_id: findUser?._id,
+        email: findUser?.email
       }
     } catch (err) {
       console.error(err);
