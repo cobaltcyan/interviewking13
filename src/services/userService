@@ -72,7 +72,11 @@ const userService = {
   async getUserInfoByEmail(email) {
     try {
       const findUser = await userRepository.findUserByEmail(email);  
-      return findUser;
+      // return findUser;
+      return {
+        user_id: findUser._id,
+        email: findUser.email
+      }
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
