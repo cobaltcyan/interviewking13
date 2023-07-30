@@ -85,10 +85,11 @@ const userController = {
             return res.status(200).json({
                 resultCode: "200",
                 message: "회원가입 성공",
-                data: {
-                    user_id: newUser._id,
-                    email: newUser.email 
-                }
+                data: newUser
+                // data: {
+                //     user_id: newUser._id,
+                //     email: newUser.email 
+                // }
             });
         } catch (err) {
             console.error(err);
@@ -149,10 +150,10 @@ const userController = {
                             resultCode: "200",
                             message: "로그인 성공",
                             data: {
-                            user_id: findUser._id,
-                            user_name: findUser.user_name,
-                            email,
-                            token
+                                user_id: findUser._id,
+                                user_name: findUser.user_name,
+                                email,
+                                token
                             }
                         });
         } catch (err) {
@@ -207,15 +208,6 @@ const userController = {
                 resultCode: "200",
                 message: "내 정보 조회 성공",
                 data: findUser
-                // data: {
-                //     user_id: findUser._id,
-                //     user_name: findUser.user_name,
-                //     email: findUser.email,
-                //     intro_yn: findUser.intro_yn,
-                //     phone_number: findUser.phone_number,
-                //     file_key: findUser.file_key, 
-                //     file_name: findUser.file_name
-                // }
             });
         } catch (err) {
             console.error(err);

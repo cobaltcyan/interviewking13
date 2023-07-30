@@ -24,7 +24,11 @@ const userService = {
   async postSignUp(newUserInfo) {
     try {
       const newUser = await userRepository.createUser(newUserInfo);
-      return newUser;
+      // return newUser;
+      return {
+        user_id: newUser._id,
+        email: newUser.email
+      };
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
