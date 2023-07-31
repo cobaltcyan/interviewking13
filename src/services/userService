@@ -24,11 +24,7 @@ const userService = {
   async postSignUp(newUserInfo) {
     try {
       const newUser = await userRepository.createUser(newUserInfo);
-      // return newUser;
-      return {
-        user_id: newUser._id,
-        email: newUser.email
-      };
+      return newUser;
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
@@ -53,16 +49,7 @@ const userService = {
   async getUserInfoById(user_id) {
     try {
       const findUser = await userRepository.findUserById(user_id); 
-      // return findUser;
-      return {
-        user_id: findUser._id,
-        user_name: findUser.user_name,
-        email: findUser.email,
-        intro_yn: findUser.intro_yn,
-        phone_number: findUser.phone_number, 
-        file_key: findUser.file_key, 
-        file_name: findUser.file_name
-      };
+      return findUser;
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
@@ -72,14 +59,7 @@ const userService = {
   async getUserInfoByEmail(email) {
     try {
       const findUser = await userRepository.findUserByEmail(email);  
-      // return findUser;
-      if (!findUser) {
-        return null; // 유저가 없는 경우 null 반환
-      }
-      return {
-        user_id: findUser?._id,
-        email: findUser?.email
-      }
+      return findUser;
     } catch (err) {
       console.error(err);
       throw new Error('Invalid Error');
